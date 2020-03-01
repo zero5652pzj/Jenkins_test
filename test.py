@@ -8,10 +8,10 @@ def document(filepath):
 			text = f.readline()
 			yield text
 
+print("Begin!!")
 doc = document(file)
 words = 'Treat the image'
 for _ in range(30):
 	texts = next(doc)
 	if words in texts:
 		print(texts)
-	print("Finished!!")
