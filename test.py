@@ -15,3 +15,5 @@ for _ in range(30):
 	texts = next(doc)
 	if words in texts:
 		print(texts)
+
+print("End!!!")
