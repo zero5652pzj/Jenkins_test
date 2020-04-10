@@ -7,7 +7,7 @@ pipeline {
    	    	choices: "dev\nmaster",
    	    	description: "This is github&Jenkinfile"
 			)
-		strint (
+		string (
 			name: 'version', 
 			defaultValue: '1.0.0', 
 			description: 'Version is:'
@@ -41,7 +41,7 @@ pipeline {
 			input {
 				message "Should we continue?"
                 ok "Yes, we should."
-                submiter "alice,bob"
+                submitter "alice,bob"
                 parameters {
                 	string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')}
 			}
