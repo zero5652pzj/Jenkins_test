@@ -5,7 +5,7 @@ pipeline {
 		choice (
 			name: "deploy_env",
    	    	choices: "dev\nmaster",
-   	    	description: "This is github&Jenkinfile"
+   	    	description: "Select the branch"
 			)
 		string (
 			name: 'version', 
@@ -15,7 +15,7 @@ pipeline {
 	}
 
 	stages {
-		stage('Build') {
+        stage('Build') {
 			steps {
 				echo 'Ready to ping baidu...'
                 bat 'ping baidu.com'
