@@ -1,26 +1,34 @@
 pipeline {
    agent any
    parameters {
-        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
-        string(name: 'PYTHON', defaultValue: 'Mr Eric', description: 'How can i output?')
+   	    choice(
+   	    	    name: "deploy_env",
+   	    	    choices: "dev\nmaster"
+   	    	    descriptions: "This is github&Jenkinfile"
+   	    	)
+        string(name: 'version', defaultValue: '1.0.0', description: 'Choose the version:')
     }
    stages {
-        stage('构建') {
+        stage('Build') {
            steps {
                 echo 'Ready to ping baidu...'
                 bat 'ping baidu.com'
-               timeout(time: 1,unit:'MINUTES') {
-                   bat 'E:/pause.bat'
+                timeout(time: 1,unit:'MINUTES') {
+                bat 'E:/pause.bat'
                }
-               }
+            steps {
+            	echo '%env.WORKSPACE%'
+            }
+            }
+            }
         }
-        stage('部署') {
+        stage('CD') {
             steps {
                 echo 'Step two'
                 echo '%BUILD_NUMBER%'
             }
         }
-        stage('测试') {
+        stage('Testing') {
             steps {
                 bat 'java -version'
             }
