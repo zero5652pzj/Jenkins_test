@@ -20,7 +20,7 @@ pipeline {
 				echo 'Ready to ping baidu...'
                 bat 'ping baidu.com'
                 timeout(time: 1,unit:'MINUTES') {
-                bat 'E:/pause.bat'
+                bat 'E:/pause.bat'}
 			}
 			steps {
 				echo '%env.WORKSPACE%'
@@ -43,7 +43,7 @@ pipeline {
                 ok "Yes, we should."
                 submiter "alice,bob"
                 parameters {
-                	string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+                	string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')}
 			}
 			steps {
                 echo "Hello, ${PERSON}, nice to meet you."
@@ -67,4 +67,5 @@ pipeline {
             echo 'This is changed run'
         }
 	}
+
 }
