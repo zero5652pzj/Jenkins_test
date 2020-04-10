@@ -3,10 +3,10 @@ pipeline {
    parameters {
    	    choice(
    	    	    name: "deploy_env",
-   	    	    choices: "dev\nmaster"
-   	    	    descriptions: "This is github&Jenkinfile"
+   	    	    choices: "dev\nmaster",
+   	    	    description: "This is github&Jenkinfile"
    	    	)
-        string(name: 'version', defaultValue: '1.0.0', description: 'Choose the version:')
+        string(name: 'version', defaultValue: '1.0.0', description: 'Version is')
     }
    stages {
         stage('Build') {
